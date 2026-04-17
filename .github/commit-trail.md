@@ -6,3 +6,4 @@
 - 003 synthetic history
 - 004 synthetic history
 - 005 synthetic history
+- 006 synthetic history
