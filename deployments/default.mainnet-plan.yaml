@@ -1,0 +1,17 @@
+id: 0
+name: Mainnet deployment
+network: mainnet
+stacks-node: https://api.hiro.so
+bitcoin-node: http://blockstack:blockstacksystem@bitcoin.blockstack.com:8332
+plan:
+  batches:
+  - id: 0
+    transactions:
+    - transaction-type: contract-publish
+      contract-name: community-guestbook
+      expected-sender: SP2X9XZZHGXMCV14WZ6FCNPH6JMR0NMASQGA3GAB1
+      cost: 902253
+      path: contracts/community-guestbook.clar
+      anchor-block-only: true
+      clarity-version: 5
+    epoch: '3.4'
