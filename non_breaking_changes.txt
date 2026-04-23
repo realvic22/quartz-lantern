@@ -11,3 +11,4 @@ Non-breaking change 9
 Non-breaking change 10
 Non-breaking change 11
 Non-breaking change 12
+Non-breaking change 13
