@@ -5,3 +5,4 @@ Non-breaking change 3
 Non-breaking change 4
 Non-breaking change 5
 Non-breaking change 6
+Non-breaking change 7
