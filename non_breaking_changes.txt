@@ -42,3 +42,4 @@ Non-breaking change 40
 Non-breaking change 41
 Non-breaking change 42
 Non-breaking change 43
+Non-breaking change 44
