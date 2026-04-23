@@ -2,3 +2,4 @@ Starting non-breaking changes
 Non-breaking change 1
 Non-breaking change 2
 Non-breaking change 3
+Non-breaking change 4
