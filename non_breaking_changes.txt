@@ -46,3 +46,4 @@ Non-breaking change 44
 Non-breaking change 45
 Non-breaking change 46
 Non-breaking change 47
+Non-breaking change 48
