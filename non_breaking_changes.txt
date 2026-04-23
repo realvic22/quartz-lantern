@@ -24,3 +24,4 @@ Non-breaking change 22
 Non-breaking change 23
 Non-breaking change 24
 Non-breaking change 25
+Non-breaking change 26
