@@ -8,3 +8,4 @@ Non-breaking change 6
 Non-breaking change 7
 Non-breaking change 8
 Non-breaking change 9
+Non-breaking change 10
