@@ -39,3 +39,4 @@ Non-breaking change 37
 Non-breaking change 38
 Non-breaking change 39
 Non-breaking change 40
+Non-breaking change 41
