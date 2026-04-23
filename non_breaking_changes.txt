@@ -51,3 +51,4 @@ Non-breaking change 49
 Non-breaking change 50
 Non-breaking change 51
 Non-breaking change 52
+Non-breaking change 53
