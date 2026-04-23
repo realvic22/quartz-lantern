@@ -20,3 +20,4 @@ Non-breaking change 18
 Non-breaking change 19
 Non-breaking change 20
 Non-breaking change 21
+Non-breaking change 22
