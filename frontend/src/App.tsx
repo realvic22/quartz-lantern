@@ -374,174 +374,198 @@ function App() {
   if (!walletConnected) {
     return (
       <main className="app locked-shell">
-        <header className="topbar">
-          <div>
-            <p className="eyebrow">Community Guestbook</p>
-            <h1>On-Chain Message Walls</h1>
-            <p className="muted">Connect wallet to unlock community creation, signing, and owner controls.</p>
-          </div>
-          <div className="actions">
-            <button className="accent" onClick={onConnect}>
-              Connect Wallet
-            </button>
-          </div>
-        </header>
+        <div className="shell">
+          <header className="topbar">
+            <div>
+              <p className="eyebrow">Community Guestbook</p>
+              <h1>On-Chain Message Walls</h1>
+              <p className="muted">Connect wallet to unlock community creation, signing, and owner controls.</p>
+            </div>
+            <div className="actions">
+              <button className="accent" onClick={onConnect}>
+                Connect Wallet
+              </button>
+            </div>
+          </header>
 
-        <section className="locked hard-lock">
-          <h2>UI Locked</h2>
-          <p>The full guestbook dashboard is hidden until wallet connection succeeds.</p>
-          <p className="muted small">Network: {NETWORK} | Contract: {contractId}</p>
-        </section>
+          <section className="locked hard-lock">
+            <h2>UI Locked</h2>
+            <p>The full guestbook dashboard is hidden until wallet connection succeeds.</p>
+            <p className="muted small">Network: {NETWORK} | Contract: {contractId}</p>
+          </section>
 
-        <footer className="status">{status}</footer>
+          <footer className="status">{status}</footer>
+        </div>
       </main>
     )
   }
 
   return (
     <main className="app">
-      <header className="topbar">
-        <div>
-          <p className="eyebrow">Community Guestbook</p>
-          <h1>On-Chain Message Walls</h1>
-          <p className="muted">Create spaces, sign guestbooks, and enforce cooldowns directly on Stacks.</p>
-        </div>
-        <div className="actions">
-          <button className="ghost" onClick={() => refreshAll()} disabled={loading || submitting}>
-            {loading ? 'Refreshing...' : 'Refresh'}
-          </button>
-          <button className="accent" onClick={onDisconnect}>
-            Disconnect {shortAddress}
-          </button>
-        </div>
-      </header>
+      <div className="shell">
+        <header className="topbar">
+          <div>
+            <p className="eyebrow">Community Guestbook</p>
+            <h1>On-Chain Message Walls</h1>
+            <p className="muted">Create spaces, sign guestbooks, and enforce cooldowns directly on Stacks.</p>
+          </div>
+          <div className="actions">
+            <button className="ghost" onClick={() => refreshAll()} disabled={loading || submitting}>
+              {loading ? 'Refreshing...' : 'Refresh'}
+            </button>
+            <button className="accent" onClick={onDisconnect}>
+              Disconnect {shortAddress}
+            </button>
+          </div>
+        </header>
 
-      <section className="meta-row">
-        <div className="meta-card">
-          <span>Communities</span>
-          <strong>{communities.length}</strong>
-        </div>
-        <div className="meta-card">
-          <span>Selected</span>
-          <strong>{selectedCommunity ? `${selectedCommunity.id} - ${selectedCommunity.name}` : 'None'}</strong>
-        </div>
-        <div className="meta-card">
-          <span>Entries</span>
-          <strong>{selectedCommunity?.entryCount ?? 0}</strong>
-        </div>
-        <div className="meta-card">
-          <span>Can sign now</span>
-          <strong>{canSignNow ? 'Yes' : 'Cooldown'}</strong>
-        </div>
-        <div className="meta-card">
-          <span>Last signed block</span>
-          <strong>{lastEntryHeight}</strong>
-        </div>
-        <div className="meta-card">
-          <span>Wallet</span>
-          <strong>{shortAddress}</strong>
-        </div>
-      </section>
+        <section className="meta-row">
+          <div className="meta-card">
+            <span>Communities</span>
+            <strong>{communities.length}</strong>
+          </div>
+          <div className="meta-card">
+            <span>Selected</span>
+            <strong>{selectedCommunity ? `${selectedCommunity.id} - ${selectedCommunity.name}` : 'None'}</strong>
+          </div>
+          <div className="meta-card">
+            <span>Entries</span>
+            <strong>{selectedCommunity?.entryCount ?? 0}</strong>
+          </div>
+          <div className="meta-card">
+            <span>Can sign now</span>
+            <strong>{canSignNow ? 'Yes' : 'Cooldown'}</strong>
+          </div>
+          <div className="meta-card">
+            <span>Last signed block</span>
+            <strong>{lastEntryHeight}</strong>
+          </div>
+          <div className="meta-card">
+            <span>Wallet</span>
+            <strong>{shortAddress}</strong>
+          </div>
+        </section>
 
-      <section className="controls-panel dual-grid">
-        <label>
-          Community name
-          <input value={newName} onChange={(e) => setNewName(e.target.value)} maxLength={64} placeholder="Builders Hub" />
-        </label>
-        <label>
-          Description
-          <input value={newDescription} onChange={(e) => setNewDescription(e.target.value)} maxLength={160} placeholder="Welcome to our guestbook" />
-        </label>
-        <label>
-          Rate limit blocks
-          <input value={newRateLimit} onChange={(e) => setNewRateLimit(e.target.value)} placeholder="10" />
-        </label>
-        <button className="accent" onClick={onCreateCommunity} disabled={submitting || loading}>
-          Create community
-        </button>
-      </section>
+        <div className="dashboard">
+          <div className="stack">
+            <section className="controls-panel dual-grid" aria-label="Create community">
+              <label>
+                Community name
+                <input value={newName} onChange={(e) => setNewName(e.target.value)} maxLength={64} placeholder="Builders Hub" />
+              </label>
+              <label>
+                Description
+                <input value={newDescription} onChange={(e) => setNewDescription(e.target.value)} maxLength={160} placeholder="Welcome to our guestbook" />
+              </label>
+              <label>
+                Rate limit blocks
+                <input value={newRateLimit} onChange={(e) => setNewRateLimit(e.target.value)} placeholder="10" />
+              </label>
+              <button className="accent" onClick={onCreateCommunity} disabled={submitting || loading}>
+                Create community
+              </button>
+            </section>
 
-      <section className="controls-panel deep-grid">
-        <label className="wide-field">
-          Sign selected community
-          <input value={newMessage} onChange={(e) => setNewMessage(e.target.value)} maxLength={280} placeholder="Leave your on-chain message" />
-        </label>
-        <button className="accent" onClick={onSignGuestbook} disabled={submitting || loading || !selectedCommunity || !canSignNow || !selectedCommunity.active}>
-          Sign guestbook
-        </button>
-        <label>
-          Owner rate limit
-          <input value={newOwnerRateLimit} onChange={(e) => setNewOwnerRateLimit(e.target.value)} placeholder="10" />
-        </label>
-        <button className="ghost" onClick={onSetRateLimit} disabled={submitting || loading || !isOwner || !selectedCommunity}>
-          Set rate limit
-        </button>
-        <button className="ghost" onClick={() => onToggleActive(false)} disabled={submitting || loading || !isOwner || !selectedCommunity || !selectedCommunity.active}>
-          Pause community
-        </button>
-        <button className="accent" onClick={() => onToggleActive(true)} disabled={submitting || loading || !isOwner || !selectedCommunity || selectedCommunity.active}>
-          Reopen community
-        </button>
-      </section>
+            <section className="controls-panel deep-grid" aria-label="Sign and owner controls">
+              <label className="wide-field">
+                Sign selected community
+                <input value={newMessage} onChange={(e) => setNewMessage(e.target.value)} maxLength={280} placeholder="Leave your on-chain message" />
+              </label>
+              <button className="accent" onClick={onSignGuestbook} disabled={submitting || loading || !selectedCommunity || !canSignNow || !selectedCommunity.active}>
+                Sign guestbook
+              </button>
+              <label>
+                Owner rate limit
+                <input value={newOwnerRateLimit} onChange={(e) => setNewOwnerRateLimit(e.target.value)} placeholder="10" />
+              </label>
+              <button className="ghost" onClick={onSetRateLimit} disabled={submitting || loading || !isOwner || !selectedCommunity}>
+                Set rate limit
+              </button>
+              <button className="ghost" onClick={() => onToggleActive(false)} disabled={submitting || loading || !isOwner || !selectedCommunity || !selectedCommunity.active}>
+                Pause community
+              </button>
+              <button className="accent" onClick={() => onToggleActive(true)} disabled={submitting || loading || !isOwner || !selectedCommunity || selectedCommunity.active}>
+                Reopen community
+              </button>
+            </section>
 
-      <section className="poll-list category-grid">
-        <h2>Communities</h2>
-        <p className="muted small">Select a community to load feed and owner controls.</p>
-        <div className="category-cards">
-          {communities.map((community, idx) => (
-            <article className="poll-card category-card" key={community.id} style={{ animationDelay: `${idx * 55}ms` }}>
-              <div className="poll-head">
-                <h3>#{community.id} {community.name}</h3>
-                <span className={community.active ? 'chip open' : 'chip closed'}>{community.active ? 'Active' : 'Paused'}</span>
+            <section className="poll-list category-grid" aria-label="Communities list">
+              <div className="section-head">
+                <h2>Communities</h2>
+                <p className="muted small">Select a community to load feed and owner controls.</p>
               </div>
-              <p className="muted small">Owner: {community.owner}</p>
-              <p>{community.description}</p>
-              <p className="muted small">Rate: {community.rateLimitBlocks} blocks | Entries: {community.entryCount}</p>
-              <div className="poll-foot">
-                <button className="ghost" onClick={() => setSelectedCommunityId(community.id)}>
-                  View feed
-                </button>
+              <div className="category-cards">
+                {communities.map((community, idx) => (
+                  <article className="poll-card category-card" key={community.id} style={{ animationDelay: `${idx * 55}ms` }}>
+                    <div className="poll-head">
+                      <h3>
+                        #{community.id} {community.name}
+                      </h3>
+                      <span className={community.active ? 'chip open' : 'chip closed'}>{community.active ? 'Active' : 'Paused'}</span>
+                    </div>
+                    <p className="muted small">Owner: {community.owner}</p>
+                    <p>{community.description}</p>
+                    <p className="muted small">
+                      Rate: {community.rateLimitBlocks} blocks | Entries: {community.entryCount}
+                    </p>
+                    <div className="poll-foot">
+                      <button className="ghost" onClick={() => setSelectedCommunityId(community.id)}>
+                        View feed
+                      </button>
+                    </div>
+                  </article>
+                ))}
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            </section>
+          </div>
 
-      <section className="poll-list history-list">
-        <h2>Guestbook Feed {selectedCommunity ? `#${selectedCommunity.id}` : ''}</h2>
-        {selectedCommunity && !selectedCommunity.active ? <p className="muted small">This community is paused. Signing is disabled.</p> : null}
-        {entries.length === 0 ? (
-          <p className="muted">No entries yet.</p>
-        ) : (
-          <div className="history-items">
-            {entries.map((entry) => (
-              <article className="poll-card history-card" key={`${entry.id}-${entry.author}`}>
-                <div className="poll-head">
-                  <h3>Entry #{entry.id}</h3>
-                  <span className="chip closed">Block {entry.createdHeight}</span>
+          <div className="stack">
+            <section className="poll-list history-list" aria-label="Guestbook feed">
+              <div className="section-head">
+                <h2>Guestbook Feed {selectedCommunity ? `#${selectedCommunity.id}` : ''}</h2>
+                {selectedCommunity && !selectedCommunity.active ? (
+                  <p className="muted small">This community is paused. Signing is disabled.</p>
+                ) : null}
+              </div>
+              {entries.length === 0 ? (
+                <p className="muted">No entries yet.</p>
+              ) : (
+                <div className="history-items">
+                  {entries.map((entry) => (
+                    <article className="poll-card history-card" key={`${entry.id}-${entry.author}`}>
+                      <div className="poll-head">
+                        <h3>Entry #{entry.id}</h3>
+                        <span className="chip closed">Block {entry.createdHeight}</span>
+                      </div>
+                      <p>{entry.message}</p>
+                      <p className="muted small">By {entry.author}</p>
+                    </article>
+                  ))}
                 </div>
-                <p>{entry.message}</p>
-                <p className="muted small">By {entry.author}</p>
-              </article>
-            ))}
-          </div>
-        )}
-      </section>
+              )}
+            </section>
 
-      <section className="poll-list history-list">
-        <h2>Recent Local Activity</h2>
-        {history.length === 0 ? <p className="muted">No actions yet.</p> : (
-          <div className="history-items">
-            {history.map((item, idx) => (
-              <article className="poll-card history-card" key={`${item}-${idx}`}>
-                <p>{item}</p>
-              </article>
-            ))}
+            <section className="poll-list history-list" aria-label="Recent local activity">
+              <div className="section-head">
+                <h2>Recent Local Activity</h2>
+              </div>
+              {history.length === 0 ? (
+                <p className="muted">No actions yet.</p>
+              ) : (
+                <div className="history-items">
+                  {history.map((item, idx) => (
+                    <article className="poll-card history-card" key={`${item}-${idx}`}>
+                      <p>{item}</p>
+                    </article>
+                  ))}
+                </div>
+              )}
+            </section>
           </div>
-        )}
-      </section>
+        </div>
 
-      <footer className="status">{status}</footer>
+        <footer className="status">{status}</footer>
+      </div>
     </main>
   )
 }
