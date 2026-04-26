@@ -158,3 +158,4 @@ Non-breaking change 156
 Non-breaking change 157
 Non-breaking change 158
 Non-breaking change 159
+Non-breaking change 160
