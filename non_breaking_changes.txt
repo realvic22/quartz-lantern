@@ -94,3 +94,4 @@ Non-breaking change 92
 Non-breaking change 93
 Non-breaking change 94
 Non-breaking change 95
+Non-breaking change 96
