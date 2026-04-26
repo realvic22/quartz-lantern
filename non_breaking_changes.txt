@@ -130,3 +130,4 @@ Non-breaking change 128
 Non-breaking change 129
 Non-breaking change 130
 Non-breaking change 131
+Non-breaking change 132
