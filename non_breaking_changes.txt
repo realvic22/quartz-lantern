@@ -105,3 +105,4 @@ Non-breaking change 103
 Non-breaking change 104
 Non-breaking change 105
 Non-breaking change 106
+Non-breaking change 107
