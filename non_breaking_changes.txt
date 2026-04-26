@@ -67,3 +67,4 @@ Non-breaking change 65
 Non-breaking change 66
 Non-breaking change 67
 Non-breaking change 68
+Non-breaking change 69
