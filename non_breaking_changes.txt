@@ -98,3 +98,4 @@ Non-breaking change 96
 Non-breaking change 97
 Non-breaking change 98
 Non-breaking change 99
+Non-breaking change 100
