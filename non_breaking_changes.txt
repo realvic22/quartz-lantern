@@ -87,3 +87,4 @@ Non-breaking change 85
 Non-breaking change 86
 Non-breaking change 87
 Non-breaking change 88
+Non-breaking change 89
