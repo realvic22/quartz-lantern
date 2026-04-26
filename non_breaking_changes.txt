@@ -122,3 +122,4 @@ Non-breaking change 120
 Non-breaking change 121
 Non-breaking change 122
 Non-breaking change 123
+Non-breaking change 124
