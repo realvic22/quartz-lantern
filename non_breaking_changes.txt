@@ -74,3 +74,4 @@ Non-breaking change 72
 Non-breaking change 73
 Non-breaking change 74
 Non-breaking change 75
+Non-breaking change 76
