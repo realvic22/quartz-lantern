@@ -118,3 +118,4 @@ Non-breaking change 116
 Non-breaking change 117
 Non-breaking change 118
 Non-breaking change 119
+Non-breaking change 120
