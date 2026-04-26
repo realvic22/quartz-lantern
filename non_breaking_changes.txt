@@ -151,3 +151,4 @@ Non-breaking change 149
 Non-breaking change 150
 Non-breaking change 151
 Non-breaking change 152
+Non-breaking change 153
